@@ -48,6 +48,8 @@ lcov-report
 
 # Config
 server/config-vars.json
+src/config/config.json
+src/config/auth.json
 
 # Uploads
 tmp
