@@ -16,7 +16,7 @@ module.exports = (req, res) => {
         bcrypt.compare(req.body.password, user.password, function(error, isEqual) {
             if (isEqual) {
                 user.password = undefined;
-                return res.status(202).send({token: generateToken(user.id)});
+                return res.status(202).send({token: generateToken(user.id, user.role)});
             }
             return res.status(401).send('Invalid password!');
         });
