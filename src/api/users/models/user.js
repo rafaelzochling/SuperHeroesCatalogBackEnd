@@ -17,6 +17,10 @@ const schema = {
     type: Sequelize.STRING,
     allowNull: false
   },
+  role: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   created_at: Sequelize.DATE,
   updated_at: Sequelize.DATE
 }
