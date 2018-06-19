@@ -23,6 +23,6 @@ const options = {
   freezeTableName: true
 }
 
-const RoleModel = sequelize.define('RoleModel', schema, options);
+const RoleModel = sequelize.define('rolestable', schema, options);
 
 module.exports = RoleModel;

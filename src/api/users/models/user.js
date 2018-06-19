@@ -33,6 +33,6 @@ sequelize.addHook('beforeCreate', async (schema) => {
   schema.password = hash;
 });
 
-const UserModel = sequelize.define('UsersModel', schema, options);
+const UserModel = sequelize.define('userstable', schema, options);
 
 module.exports = UserModel;
