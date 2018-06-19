@@ -1,6 +1,3 @@
-const jwt = require('jsonwebtoken')
-const authConfig = require('../../../config/auth')
-
 module.exports = (roles) => {
     return (req, res, next) => {
         const role = req.role;
