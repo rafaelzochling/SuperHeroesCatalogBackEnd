@@ -1,2 +1,2 @@
-# SuperHero Catalogue - API
+# SuperHero Catalogue - BackEnd
 
