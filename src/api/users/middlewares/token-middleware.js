@@ -22,9 +22,6 @@ module.exports = (req, res, next) => {
         req.id = decoded.id;
         req.role = decoded.role;
 
-        console.log('ID: ' + decoded.id);
-        console.log('ROLE: ' + decoded.role);
-
         return next();
     });
 }
