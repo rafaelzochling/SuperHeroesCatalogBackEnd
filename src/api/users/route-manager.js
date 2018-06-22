@@ -9,34 +9,11 @@ const updateController = require('./controllers/update-controller');
 const deleteController = require('./controllers/delete-controller');
 const authenticateController = require('./controllers/authenticate-controller');
 
-// Route: Create
-router.post('/create', async (req, res) => {
-    await createController(req, res);
-});
-
-// Route: Retrieve List
-router.get('/retrieve/list', tokenMiddleware, roleAuthMiddleware(['admin']), async (req, res) => {
-    await listController(req, res);
-});
-
-// Route: Retrieve Item
-router.get('/retrieve/item/:username', tokenMiddleware, roleAuthMiddleware(['admin']), async (req, res) => {
-    await findController(req, res);
-});
-
-// Route: Update
-router.post('/update', tokenMiddleware, roleAuthMiddleware(['admin']), async (req, res) => {
-    await updateController(req, res);
-});
-
-// Route: Delete
-router.delete('/delete/:username', tokenMiddleware, roleAuthMiddleware(['admin']), async (req, res) => {
-    await deleteController(req, res);
-});
-
-// Route: Authenticate
-router.post('/authenticate', async (req, res) => {
-    await authenticateController(req, res);
-});
+router.post('/create', createController);
+router.get('/retrieve/list', tokenMiddleware, roleAuthMiddleware(['admin']), listController);
+router.get('/retrieve/item/:username', tokenMiddleware, roleAuthMiddleware(['admin']), findController);
+router.post('/update', tokenMiddleware, roleAuthMiddleware(['admin']), updateController);
+router.delete('/delete/:username', tokenMiddleware, roleAuthMiddleware(['admin']), deleteController);
+router.post('/authenticate', authenticateController);
 
 module.exports = app => app.use('/user', router);
