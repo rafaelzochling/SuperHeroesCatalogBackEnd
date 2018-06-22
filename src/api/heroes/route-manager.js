@@ -7,13 +7,11 @@ const listController = require('./controllers/list-controller');
 const findController = require('./controllers/find-controller');
 const updateController = require('./controllers/update-controller');
 const deleteController = require('./controllers/delete-controller');
-const authenticateController = require('./controllers/authenticate-controller');
 
-router.post('/create', createController);
+router.post('/create', tokenMiddleware, roleAuthMiddleware(['admin']),createController);
 router.get('/retrieve/list', tokenMiddleware, roleAuthMiddleware(['admin']), listController);
-router.get('/retrieve/item/:username', tokenMiddleware, roleAuthMiddleware(['admin']), findController);
+router.get('/retrieve/item/:heroname', tokenMiddleware, roleAuthMiddleware(['admin']), findController);
 router.post('/update', tokenMiddleware, roleAuthMiddleware(['admin']), updateController);
-router.delete('/delete/:username', tokenMiddleware, roleAuthMiddleware(['admin']), deleteController);
-router.post('/authenticate', authenticateController);
+router.delete('/delete/:heroname', tokenMiddleware, roleAuthMiddleware(['admin']), deleteController);
 
-module.exports = app => app.use('/user', router);
+module.exports = app => app.use('/heroes', router);

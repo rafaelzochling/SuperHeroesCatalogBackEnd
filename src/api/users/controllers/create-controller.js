@@ -1,5 +1,4 @@
 const UserModel = require('../models/user');
-const generateToken = require('../util/token-generator')
 
 module.exports = (req, res) => {
         UserModel.sync();

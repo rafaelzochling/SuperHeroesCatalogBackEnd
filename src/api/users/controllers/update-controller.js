@@ -11,8 +11,9 @@ module.exports = (req, res) => {
             return res.status(404).send('User not found!');
         }
         user.update({
-            username: req.body.testusername
+            username: req.body.newusername
           }).then(() => {
+            user.password = undefined;
             return res.status(200).send(user);
           })
           .catch(error => res.status(304).send('Update error! ERROR: ' + error));

@@ -8,5 +8,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 require('./api/users/route-manager')(app);
+require('./api/heroes/route-manager')(app);
 
 app.listen(3000);
