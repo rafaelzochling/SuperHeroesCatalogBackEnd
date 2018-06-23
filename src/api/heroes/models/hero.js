@@ -12,6 +12,9 @@ const schema = {
     allowNull: false,
     unique: true
   },
+  allias: {
+    type: Sequelize.STRING,
+  },
   created_at: Sequelize.DATE,
   updated_at: Sequelize.DATE
 }
