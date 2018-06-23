@@ -11,8 +11,8 @@ module.exports = (req, res) => {
         .then(hero => {
             if (!hero) {
                 HeroModel.create(req.body)
-                .then(hero123 => {
-                    return res.status(201).send(hero123);
+                .then(hero => {
+                    return res.status(201).send(hero);
                 })
                 .catch(error => res.status(400).send('Validation failed! ERROR: ' + error));
             } else {
