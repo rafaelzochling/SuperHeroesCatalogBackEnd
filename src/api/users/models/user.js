@@ -32,11 +32,16 @@ const options = {
   freezeTableName: true
 }
 
-sequelize.addHook('beforeCreate', async (schema) => {
-  const hash = await bcrypt.hash(schema.password, 10);
-  schema.password = hash;
-});
-
 const UserModel = sequelize.define('userstable', schema, options);
+
+UserModel.beforeCreate((user, options) => {
+  return bcrypt.hash(user.password, 10)
+      .then(hash => {
+          user.password = hash;
+      })
+      .catch(err => { 
+          throw new Error(); 
+      });
+});
 
 module.exports = UserModel;

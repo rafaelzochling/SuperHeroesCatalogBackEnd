@@ -14,7 +14,10 @@ module.exports = (req, res) => {
                 .then(hero => {
                     return res.status(201).send(hero);
                 })
-                .catch(error => res.status(400).send('Validation failed! ERROR: ' + error));
+                .catch(error => {
+                    console.log(error);
+                    res.status(400).send('Validation failed! ERROR: ' + error);
+                });
             } else {
                 return res.status(409).send('This hero already exists!');
             }

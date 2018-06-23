@@ -1,7 +1,7 @@
 const HeroModel = require('../models/hero');
 
 module.exports = (req, res) => {
-    heroModel.findOne({
+    HeroModel.findOne({
         where: {
             heroname: req.body.heroname
         }
