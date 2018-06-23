@@ -3,8 +3,8 @@ const UserModel = require('../models/user');
 module.exports = (req, res) => {
     UserModel.findAll()
     .then( users => {
-        if (!users) {
-            return res.status(404).send('UserModel not found!');
+        if (users.length <= 0) {
+            return res.status(404).send('There is no user registered!');
         }
         users.forEach(user => {
             user.password = undefined;

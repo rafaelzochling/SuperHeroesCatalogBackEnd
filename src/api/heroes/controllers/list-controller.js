@@ -3,8 +3,8 @@ const HeroModel = require('../models/hero');
 module.exports = (req, res) => {
     HeroModel.findAll()
     .then( heroes => {
-        if (!heroes) {
-            return res.status(404).send('HeroModel not found!');
+        if (heroes.length <= 0) {
+            return res.status(404).send('There is no hero registered!');
         }
         res.status(200).send(heroes);
     })
