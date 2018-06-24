@@ -21,7 +21,7 @@ module.exports = (req, res, next) => {
         if (error) return res.status(401).send({ error: 'Token invalid!' });
         req.id = decoded.id;
         req.role = decoded.role;
-        req.role = decoded.username;
+        req.username = decoded.username;
 
         return next();
     });
