@@ -14,9 +14,9 @@ module.exports = (req, res) => {
             createEvent({
                 entity: power.powername,
                 entityid: power.id,
-                username: req.body.username,
+                username: req.username,
                 action: "DELETE",
-                action: "ACTION: " + req.body.username + ", deleted the power called" + power.powername + "."
+                message: "ACTION: " + req.username + ", deleted the power called " + power.powername + "."
             });
             power.destroy();
             return res.status(202).send('Power deleted!');

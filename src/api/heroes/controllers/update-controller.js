@@ -17,9 +17,9 @@ module.exports = (req, res) => {
                 createEvent({
                     entity: hero.heroname,
                     entityid: hero.id,
-                    username: req.body.username,
+                    username: req.username,
                     action: "UPDATE",
-                    action: "ACTION: " + req.body.username + ", updated the superhero called" + req.body.heroname + " to " + hero.heroname + "."
+                    message: "ACTION: " + req.username + ", updated the superhero called " + req.body.heroname + " to " + hero.heroname + "."
                 });
                 return res.status(200).send(hero);
             })
