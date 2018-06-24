@@ -19,8 +19,7 @@ const schema = {
   action: {
     type: Sequelize.STRING,
   },
-  created_at: Sequelize.DATE,
-  updated_at: Sequelize.DATE
+  created_at: Sequelize.DATE
 }
 
 const options = {
