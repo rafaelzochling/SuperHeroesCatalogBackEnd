@@ -14,7 +14,7 @@ module.exports = (req, res) => {
             createEvent({
                 entity: power.powername,
                 entityid: power.id,
-                username: req.username,
+                username: req.body.username,
                 action: "DELETE"
             });
             power.destroy();

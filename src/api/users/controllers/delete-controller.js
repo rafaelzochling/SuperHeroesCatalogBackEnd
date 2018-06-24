@@ -14,7 +14,7 @@ module.exports = (req, res) => {
             createEvent({
                 entity: user.username,
                 entityid: user.id,
-                username: req.username,
+                username: req.body.username,
                 action: "DELETE"
             });
             user.destroy();

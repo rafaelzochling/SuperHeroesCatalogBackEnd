@@ -18,7 +18,7 @@ module.exports = (req, res) => {
                 createEvent({
                     entity: user.username,
                     entityid: user.id,
-                    username: req.username,
+                    username: req.body.username,
                     action: "UPDATE"
                 });
                 return res.status(200).send(user);
