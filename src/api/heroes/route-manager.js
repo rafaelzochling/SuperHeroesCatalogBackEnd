@@ -9,7 +9,7 @@ const updateController = require('./controllers/update-controller');
 const deleteController = require('./controllers/delete-controller');
 
 router.post('/create', tokenMiddleware, roleAuthMiddleware(['admin']), createController);
-router.get('/retrieve/list', tokenMiddleware, roleAuthMiddleware(['admin', 'standard']), listController);
+router.get('/retrieve/list/:offset/:limit', tokenMiddleware, roleAuthMiddleware(['admin', 'standard']), listController);
 router.get('/retrieve/item/:heroname', tokenMiddleware, roleAuthMiddleware(['admin', 'standard']), findController);
 router.post('/update', tokenMiddleware, roleAuthMiddleware(['admin']), updateController);
 router.delete('/delete/:heroname', tokenMiddleware, roleAuthMiddleware(['admin']), deleteController);

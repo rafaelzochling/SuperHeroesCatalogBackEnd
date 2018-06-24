@@ -10,7 +10,7 @@ const deleteController = require('./controllers/delete-controller');
 const authenticateController = require('./controllers/authenticate-controller');
 
 router.post('/create', createController);
-router.get('/retrieve/list', tokenMiddleware, roleAuthMiddleware(['admin']), listController);
+router.get('/retrieve/list/:offset/:limit', tokenMiddleware, roleAuthMiddleware(['admin']), listController);
 router.get('/retrieve/item/:username', tokenMiddleware, roleAuthMiddleware(['admin']), findController);
 router.post('/update', tokenMiddleware, roleAuthMiddleware(['admin']), updateController);
 router.delete('/delete/:username', tokenMiddleware, roleAuthMiddleware(['admin']), deleteController);

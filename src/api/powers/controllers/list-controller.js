@@ -1,7 +1,10 @@
 const PowerModel = require('../models/power');
 
 module.exports = (req, res) => {
-    PowerModel.findAll()
+    PowerModel.findAll({
+        offset: req.params.offset,
+        limit: req.params.limit
+    })
         .then(powers => {
             if (powers.length <= 0) {
                 return res.status(404).send('There is no power registered!');

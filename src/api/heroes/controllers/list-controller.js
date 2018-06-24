@@ -1,7 +1,10 @@
 const HeroModel = require('../models/hero');
 
 module.exports = (req, res) => {
-    HeroModel.findAll()
+    HeroModel.findAll({
+        offset: req.params.offset,
+        limit: req.params.limit
+    })
         .then(heroes => {
             if (heroes.length <= 0) {
                 return res.status(404).send('There is no hero registered!');
