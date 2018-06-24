@@ -4,6 +4,6 @@ const tokenMiddleware = require('../middlewares/token-middleware');
 const roleAuthMiddleware = require('../middlewares/role-auth-middleware');
 const listController = require('./controllers/list-controller');
 
-router.get('/retrieve/list', tokenMiddleware, roleAuthMiddleware(['admin']), listController);
+router.get('/retrieve/list', tokenMiddleware, roleAuthMiddleware(['admin', 'standard']), listController);
 
 module.exports = app => app.use('/audits', router);
