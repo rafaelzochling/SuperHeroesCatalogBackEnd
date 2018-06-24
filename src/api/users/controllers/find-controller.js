@@ -6,12 +6,12 @@ module.exports = (req, res) => {
             username: req.params.username
         }
     })
-    .then(user => {
-        if (!user) {
-            return res.status(404).send('User not found!');
-        }
-        user.password = undefined;
-        return res.status(302).send(user);
-    })
-    .catch(error => res.status(500).send('Search error! ERROR: ' + error));
+        .then(user => {
+            if (!user) {
+                return res.status(404).send('User not found!');
+            }
+            user.password = undefined;
+            return res.status(302).send(user);
+        })
+        .catch(error => res.status(500).send('Search error! ERROR: ' + error));
 }

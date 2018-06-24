@@ -1,4 +1,5 @@
 const PowerModel = require('../models/power');
+const createEvent = require('../../audits/controllers/create-controller');
 
 module.exports = (req, res) => {
     PowerModel.sync();
@@ -12,6 +13,12 @@ module.exports = (req, res) => {
             if (!power) {
                 PowerModel.create(req.body)
                     .then(power => {
+                        createEvent({
+                            entity: power.powername,
+                            entityid: power.id,
+                            username: req.username,
+                            action: "CREATE"
+                        });
                         return res.status(201).send(power);
                     })
                     .catch(error => {

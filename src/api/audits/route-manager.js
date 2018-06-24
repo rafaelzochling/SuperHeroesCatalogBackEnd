@@ -6,4 +6,4 @@ const listController = require('./controllers/list-controller');
 
 router.get('/retrieve/list', tokenMiddleware, roleAuthMiddleware(['admin']), listController);
 
-module.exports = app => app.use('/events', router);
+module.exports = app => app.use('/audits', router);

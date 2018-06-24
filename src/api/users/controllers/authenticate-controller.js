@@ -8,18 +8,18 @@ module.exports = (req, res) => {
             username: req.body.username
         }
     })
-    .then(user => {
-        if (!user) {
-            return res.status(404).send('User not found!');
-        }
-
-        bcrypt.compare(req.body.password, user.password, function(error, isEqual) {
-            if (isEqual) {
-                user.password = undefined;
-                return res.status(202).send({token: generateToken(user.id, user.role)});
+        .then(user => {
+            if (!user) {
+                return res.status(404).send('User not found!');
             }
-            return res.status(401).send('Invalid password!');
-        });
-    })
-    .catch(error => res.status(500).send('Authentication error! ERROR: ' + error));
+
+            bcrypt.compare(req.body.password, user.password, function (error, isEqual) {
+                if (isEqual) {
+                    user.password = undefined;
+                    return res.status(202).send({ token: generateToken(user.id, user.role, user.username) });
+                }
+                return res.status(401).send('Invalid password!');
+            });
+        })
+        .catch(error => res.status(500).send('Authentication error! ERROR: ' + error));
 }

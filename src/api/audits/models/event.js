@@ -1,4 +1,4 @@
-const { sequelize, Sequelize } = require('../../database/superhero-database')
+const { sequelize, Sequelize } = require('../../../database/superhero-database')
 
 const schema = {
   id: {
