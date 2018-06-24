@@ -15,7 +15,8 @@ module.exports = (req, res) => {
                 entity: hero.heroname,
                 entityid: hero.id,
                 username: req.body.username,
-                action: "DELETE"
+                action: "DELETE",
+                action: "ACTION: " + req.body.username, ", deleted the superhero called" + hero.heroname + "."
             });
             hero.destroy();
             return res.status(202).send('Hero deleted!');

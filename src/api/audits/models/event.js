@@ -19,6 +19,9 @@ const schema = {
   action: {
     type: Sequelize.STRING,
   },
+  message: {
+    type: Sequelize.STRING,
+  },
   created_at: Sequelize.DATE
 }
 

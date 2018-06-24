@@ -1,5 +1,4 @@
 const UserModel = require('../models/user');
-const createEvent = require('../../audits/controllers/create-controller');
 
 module.exports = (req, res) => {
     UserModel.findOne({
@@ -15,12 +14,6 @@ module.exports = (req, res) => {
                 username: req.body.newusername
             }).then(() => {
                 user.password = undefined;
-                createEvent({
-                    entity: user.username,
-                    entityid: user.id,
-                    username: req.body.username,
-                    action: "UPDATE"
-                });
                 return res.status(200).send(user);
             })
                 .catch(error => res.status(304).send('Update error! ERROR: ' + error));

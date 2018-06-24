@@ -17,7 +17,8 @@ module.exports = (req, res) => {
                             entity: power.powername,
                             entityid: power.id,
                             username: req.body.username,
-                            action: "CREATE"
+                            action: "CREATE",
+                            action: "ACTION: " + req.body.username, ", created a power called" + power.powername + "."
                         });
                         return res.status(201).send(power);
                     })

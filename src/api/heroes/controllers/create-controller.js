@@ -17,7 +17,8 @@ module.exports = (req, res) => {
                             entity: hero.heroname,
                             entityid: hero.id,
                             username: req.body.username,
-                            action: "CREATE"
+                            action: "CREATE",
+                            action: "ACTION: " + req.body.username, ", created a superhero called" + hero.heroname + "."
                         });
                         return res.status(201).send(hero);
                     })

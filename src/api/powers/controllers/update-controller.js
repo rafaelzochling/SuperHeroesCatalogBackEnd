@@ -18,7 +18,8 @@ module.exports = (req, res) => {
                     entity: power.powername,
                     entityid: power.id,
                     username: req.body.username,
-                    action: "UPDATE"
+                    action: "UPDATE",
+                    action: "ACTION: " + req.body.username, ", updated the power called" + req.body.powername + " to " + power.powername + "."
                 });
                 return res.status(200).send(power);
             })
